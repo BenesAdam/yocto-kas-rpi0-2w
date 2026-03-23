@@ -1,0 +1,15 @@
+# Yocto/Kas build outputs
+build/
+tmp/
+sstate-cache/
+downloads/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

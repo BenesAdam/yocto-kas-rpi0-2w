@@ -1,0 +1,26 @@
+header:
+  version: 1
+
+repos:
+  meta-myproject:
+    path: .
+
+  openembedded-core:
+    url: https://git.openembedded.org/openembedded-core
+    branch: master
+
+  meta-yocto:
+    url: https://git.yoctoproject.org/meta-yocto
+    branch: whinlatter
+
+  meta-raspberrypi:
+    url: https://github.com/raspberrypi/meta-raspberrypi
+    branch: master
+
+layers:
+  meta-myproject:
+
+machine: raspberrypi0-2w-usbgadget
+distro: poky
+target:
+  - my-image
