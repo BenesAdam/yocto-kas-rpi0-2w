@@ -4,6 +4,14 @@ tmp/
 sstate-cache/
 downloads/
 
+# Kas cloned layers
+bitbake/
+meta-raspberrypi/
+meta-yocto/
+meta-poky/
+meta-yocto-bsp/
+openembedded-core/
+
 # IDE
 .idea/
 .vscode/

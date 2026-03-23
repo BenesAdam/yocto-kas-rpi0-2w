@@ -5,22 +5,31 @@ repos:
   meta-myproject:
     path: .
 
+  bitbake:
+    url: https://git.openembedded.org/bitbake
+    branch: "2.16"
+    layers:
+      bitbake: disabled
+
   openembedded-core:
     url: https://git.openembedded.org/openembedded-core
-    branch: master
+    branch: whinlatter
+    layers:
+      meta:
 
   meta-yocto:
     url: https://git.yoctoproject.org/meta-yocto
     branch: whinlatter
+    path: meta-poky
+    layers:
+      meta-poky:
+      meta-yocto-bsp: disabled
 
   meta-raspberrypi:
-    url: https://github.com/raspberrypi/meta-raspberrypi
+    url: https://git.yoctoproject.org/meta-raspberrypi
     branch: master
 
-layers:
-  meta-myproject:
-
 machine: raspberrypi0-2w-usbgadget
-distro: poky
+distro: nodistro
 target:
   - my-image
