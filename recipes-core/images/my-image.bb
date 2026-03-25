@@ -4,7 +4,11 @@ LICENSE = "MIT"
 
 inherit core-image
 
-IMAGE_INSTALL += "dropbear busybox-udhcpd usb-gadget-network"
+IMAGE_INSTALL += " \
+    packagegroup-core-boot \
+    openssh \
+"
+
 EXTRA_IMAGE_FEATURES += "empty-root-password allow-root-login"
 
 IMAGE_NAME = "my-image"

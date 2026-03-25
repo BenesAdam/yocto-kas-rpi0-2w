@@ -6,10 +6,11 @@ downloads/
 
 # Kas cloned layers
 bitbake/
-meta-raspberrypi/
-meta-yocto/
+meta-openembedded/
 meta-poky/
+meta-raspberrypi/
 meta-yocto-bsp/
+meta-yocto/
 openembedded-core/
 
 # IDE

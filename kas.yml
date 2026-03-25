@@ -29,7 +29,19 @@ repos:
     url: https://git.yoctoproject.org/meta-raspberrypi
     branch: master
 
-machine: raspberrypi0-2w-usbgadget
-distro: nodistro
+  meta-openembedded:
+    url: https://git.openembedded.org/meta-openembedded
+    branch: whinlatter
+    layers:
+      meta-oe:
+
+machine: raspberrypi0-2w-dev
+distro: poky
 target:
   - my-image
+
+local_conf_header:
+  openssh: |
+    IMAGE_INSTALL:append = " openssh"
+  remove-bt-wifi: |
+    DISTRO_FEATURES:remove = " bluetooth wifi"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE="build/tmp/deploy/images/raspberrypi0-2w-usbgadget/my-image.wic.bz2"
+IMAGE="build/tmp/deploy/images/raspberrypi0-2w-dev/my-image.wic.bz2"
 
 find_removable_disks() {
     lsblk -rndo NAME,SIZE,TYPE,TRAN | awk '$4=="usb" && $3=="disk" {print "/dev/"$1, $2}'
