@@ -1,0 +1,28 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          usbinit
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     S
+# Default-Stop:
+# Short-Description: USB gadget network initialization
+# Description:       Initializes USB gadget ethernet (g_ether)
+### END INIT INFO
+
+set -e
+
+modprobe libcomposite 2>/dev/null || true
+modprobe g_ether 2>/dev/null || true
+
+for i in $(seq 1 30); do
+    if [ -d /sys/class/net/usb0 ]; then
+        ip link set usb0 down 2>/dev/null || true
+        ip addr flush dev usb0 2>/dev/null || true
+        ip addr add 192.168.7.2/24 dev usb0 2>/dev/null || true
+        ip link set usb0 up 2>/dev/null || true
+        exit 0
+    fi
+    sleep 1
+done
+
+exit 0

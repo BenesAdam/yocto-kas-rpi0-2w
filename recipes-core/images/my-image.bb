@@ -7,6 +7,9 @@ inherit core-image
 IMAGE_INSTALL += " \
     packagegroup-core-boot \
     openssh \
+    kernel-module-libcomposite \
+    usbinit \
+    ssh-config \
 "
 
 EXTRA_IMAGE_FEATURES += "empty-root-password allow-root-login"
