@@ -3,6 +3,7 @@ build/
 tmp/
 sstate-cache/
 downloads/
+.kas_shell_history
 
 # Kas cloned layers
 bitbake/

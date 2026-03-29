@@ -10,6 +10,7 @@ IMAGE_INSTALL += " \
     kernel-module-libcomposite \
     usbinit \
     ssh-config \
+    gdbserver \
 "
 
 EXTRA_IMAGE_FEATURES += "empty-root-password allow-root-login"
