@@ -11,6 +11,7 @@ IMAGE_INSTALL += " \
     usbinit \
     ssh-config \
     gdbserver \
+    libgpiod libgpiod-tools \
 "
 
 EXTRA_IMAGE_FEATURES += "empty-root-password allow-root-login"
