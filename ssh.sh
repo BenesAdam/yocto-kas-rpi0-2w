@@ -8,4 +8,5 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
+export TERM=xterm-256color
 ssh root@192.168.7.2
