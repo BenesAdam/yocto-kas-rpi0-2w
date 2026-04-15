@@ -11,7 +11,16 @@ IMAGE_INSTALL += " \
     usbinit \
     ssh-config \
     gdbserver \
+"
+
+# GPIOD
+IMAGE_INSTALL += " \
     libgpiod libgpiodcxx libgpiod-dev libgpiod-tools \
+"
+
+# I2C
+IMAGE_INSTALL += " \
+    i2cdev i2c-tools \
 "
 
 EXTRA_IMAGE_FEATURES += "empty-root-password allow-root-login"
