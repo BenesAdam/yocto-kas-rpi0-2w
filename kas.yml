@@ -34,6 +34,8 @@ repos:
     branch: whinlatter
     layers:
       meta-oe:
+      meta-networking:
+      meta-python:
 
 machine: raspberrypi0-2w-dev
 distro: poky
@@ -41,7 +43,5 @@ target:
   - my-image
 
 local_conf_header:
-  openssh: |
-    IMAGE_INSTALL:append = " openssh"
   remove-bt-wifi: |
     DISTRO_FEATURES:remove = " bluetooth wifi"
