@@ -11,8 +11,11 @@
 
 set -e
 
+HOST_ADDR="02:de:ad:be:ef:01"
+DEV_ADDR="02:de:ad:be:ef:02"
+
 modprobe libcomposite 2>/dev/null || true
-modprobe g_ether 2>/dev/null || true
+modprobe g_ether host_addr="${HOST_ADDR}" dev_addr="${DEV_ADDR}" 2>/dev/null || true
 
 for i in $(seq 1 30); do
     if [ -d /sys/class/net/usb0 ]; then

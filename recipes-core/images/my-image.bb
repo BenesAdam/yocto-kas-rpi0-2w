@@ -9,6 +9,7 @@ IMAGE_INSTALL += " \
     openssh \
     kernel-module-libcomposite \
     usbinit \
+    usb-dhcp \
     ssh-config \
     gdbserver \
 "
