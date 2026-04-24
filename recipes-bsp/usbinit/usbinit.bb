@@ -1,19 +1,29 @@
-SUMMARY = "Initscript for enabling USB gadget Ethernet"
-DESCRIPTION = "This module allows ethernet emulation over USB, allowing for all sorts of nifty things like SSH and NFS in one go plus charging over the same wire."
+SUMMARY = "USB gadget Ethernet configuration"
+DESCRIPTION = "Configures USB gadget Ethernet without boot-time polling."
 SECTION = "bsp"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171dd6425610833a22dbe6"
 
-SRC_URI = "file://usbinit"
+SRC_URI = "file://usbinit \
+           file://g_ether.conf \
+           file://99-usb0-network.rules \
+"
 
 S = "${UNPACKDIR}"
 
-inherit update-rc.d
-
-INITSCRIPT_NAME = "usbinit"
-INITSCRIPT_PARAMS = "start 99 S ."
-
 do_install() {
-    install -d ${D}${sysconfdir}/init.d
-    install -m 0755 ${S}/usbinit ${D}${sysconfdir}/init.d/usbinit
+    install -d ${D}${sysconfdir}/modprobe.d
+    install -m 0644 ${S}/g_ether.conf ${D}${sysconfdir}/modprobe.d/g_ether.conf
+
+    install -d ${D}${sysconfdir}/udev/rules.d
+    install -m 0644 ${S}/99-usb0-network.rules ${D}${sysconfdir}/udev/rules.d/99-usb0-network.rules
+
+    install -d ${D}${sbindir}
+    install -m 0755 ${S}/usbinit ${D}${sbindir}/usbinit
 }
+
+FILES:${PN} += " \
+    ${sysconfdir}/modprobe.d/g_ether.conf \
+    ${sysconfdir}/udev/rules.d/99-usb0-network.rules \
+    ${sbindir}/usbinit \
+"

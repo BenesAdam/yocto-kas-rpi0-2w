@@ -4,10 +4,13 @@ LICENSE = "MIT"
 
 inherit core-image
 
+IMAGE_FSTYPES = "wic.bz2 wic.bmap"
+
 IMAGE_INSTALL += " \
     packagegroup-core-boot \
     openssh \
     kernel-module-libcomposite \
+    kernel-module-g-ether \
     usbinit \
     usb-dhcp \
     ssh-config \
