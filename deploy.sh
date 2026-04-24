@@ -33,5 +33,10 @@ if [[ "$REPLY" =~ ^[Nn]$ ]]; then
     exit
 fi
 
+if mount | grep -q "^$DEVICE"; then
+    echo "Device was already mounted and is unmounted."
+    umount ${DEVICE}* 2>/dev/null
+fi
+
 sudo bmaptool copy "$IMAGE" "$DEVICE"
 echo "Done."
