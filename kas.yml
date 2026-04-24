@@ -43,7 +43,5 @@ target:
   - my-image
 
 local_conf_header:
-  openssh: |
-    IMAGE_INSTALL:append = " openssh"
   remove-bt-wifi: |
     DISTRO_FEATURES:remove = " bluetooth wifi"

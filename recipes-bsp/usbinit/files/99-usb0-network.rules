@@ -1,1 +1,0 @@
-ACTION=="add", SUBSYSTEM=="net", KERNEL=="usb0", RUN+="/usr/sbin/usbinit"

@@ -9,10 +9,8 @@ IMAGE_FSTYPES = "wic.bz2 wic.bmap"
 IMAGE_INSTALL += " \
     packagegroup-core-boot \
     openssh \
-    kernel-module-libcomposite \
     kernel-module-g-ether \
-    usbinit \
-    usb-dhcp \
+    usb-gadget-network \
     ssh-config \
     ssh-host-keys \
     gdbserver \

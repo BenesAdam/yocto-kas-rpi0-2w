@@ -47,6 +47,8 @@ ssh root@192.168.7.2
 
 - User: root
 - Password: (empty)
+- Host PC should get `192.168.7.1` automatically over DHCP
+- `./assign-ip.sh` remains available as a fallback if host-side DHCP does not engage
 
 ## UART
 
