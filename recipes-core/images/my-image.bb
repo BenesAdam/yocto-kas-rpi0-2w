@@ -11,6 +11,7 @@ IMAGE_INSTALL += " \
     usbinit \
     usb-dhcp \
     ssh-config \
+    ssh-host-keys \
     gdbserver \
 "
 
