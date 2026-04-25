@@ -9,4 +9,12 @@ ip link set usb0 down 2>/dev/null || true
 ip addr replace 192.168.7.2/24 dev usb0 2>/dev/null || true
 ip link set usb0 up 2>/dev/null || true
 
+# The gadget interface may appear after dnsmasq has already started, so
+# trigger a restart once usb0 exists to make sure DHCP is actually served.
+if command -v systemctl >/dev/null 2>&1; then
+    systemctl restart dnsmasq.service 2>/dev/null || true
+elif [ -x /etc/init.d/dnsmasq ]; then
+    /etc/init.d/dnsmasq restart 2>/dev/null || /etc/init.d/dnsmasq start 2>/dev/null || true
+fi
+
 exit 0
